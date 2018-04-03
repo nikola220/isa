@@ -10,7 +10,5 @@ public interface UserService {
 
 	Page<User> findUsers(String criteria, Pageable pageable);
 	
-	User getUser(String username);
-	
 	User addUser(User user);
 }

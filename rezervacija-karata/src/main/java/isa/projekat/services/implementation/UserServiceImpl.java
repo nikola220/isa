@@ -1,7 +1,9 @@
-package isa.projekat.services;
+package isa.projekat.services.implementation;
 
 import isa.projekat.domain.User;
+import isa.projekat.domain.UserType;
 import isa.projekat.repository.UserRepository;
+import isa.projekat.services.UserService;
 
 import org.junit.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +24,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUser(String username) {
-		return null;
-	}
-
-	@Override
 	public User addUser(User user) {
-		User u = new User();
-		u.setUsername(user.getUsername());
-		u.setPassword(user.getPassword());
-		u.setCity(user.getCity());
-		u.setEmail(user.getEmail());
-		u.setName(user.getName());
-		u.setPhone(user.getPhone());
-		return u;
+		user.setType(UserType.Registered);
+		userRepo.save(user);
+		return user;
 	}
 
 }
