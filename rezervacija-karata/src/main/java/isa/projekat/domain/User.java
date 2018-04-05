@@ -1,25 +1,34 @@
 package isa.projekat.domain;
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
-public class User {
+public class User implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1508435826679218021L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
 	private Long id;
 	
 	private String name;
 	private String lastName;
 	private String password;
+	private String password2;
 	private String email;
 	private String city;
 	private int phone;
+	private boolean activated = false;
 	
 	@Enumerated(EnumType.STRING)
 	private UserType type;
@@ -69,5 +78,16 @@ public class User {
 	public void setType(UserType type) {
 		this.type = type;
 	}
-	
+	public boolean isActivated() {
+		return activated;
+	}
+	public void setActivated(boolean activated) {
+		this.activated = activated;
+	}
+	public String getPassword2() {
+		return password2;
+	}
+	public void setPassword2(String password2) {
+		this.password2 = password2;
+	}
 }

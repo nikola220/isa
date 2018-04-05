@@ -15,7 +15,7 @@
   <!-- Website Font style -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 	
-  <script src="scripts/reg.js"></script>
+  <script src="scripts/log.js"></script>
 </head>
 <body>
 
@@ -38,7 +38,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span>{{loggedUser}}</a></li>
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>
@@ -49,26 +49,6 @@
 
 				<div ng-app="regApp" ng-controller="regCtrl" class="main-login main-center">
 					<form ng-submit="regFunc()" class="form-horizontal" name="regForm">
-						
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input ng-model="user.name" type="text" class="form-control" name="name" placeholder="Enter your Name" required>
-								</div>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label for="lastName" class="cols-sm-2 control-label">Your Last Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input ng-model="user.lastName" type="text" class="form-control" name="lastName" placeholder="Enter your Last Name" required>
-								</div>
-							</div>
-						</div>
 
 						<div class="form-group">
 							<label for="email" class="cols-sm-2 control-label">Your Email</label>
@@ -90,56 +70,11 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input ng-model="user.password2" type="password" class="form-control" name="password2" placeholder="Confirm your Password" required>
-								</div>
-									<span style="color:red" ng-show="invalidPassword() && regForm.password2.$touched">Passwords don't match</span>
-							</div>
-						</div>
-						
-					<div class="form-group">
-							<label for="city" class="cols-sm-2 control-label">City</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
-									<input ng-model="user.city" type="text" class="form-control" name="city" placeholder="Enter your City" required>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="phone" class="cols-sm-2 control-label">Phone Number</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									<input ng-model="user.phone" type="number" class="form-control" name="phone" placeholder="Enter your Phone Number" required>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group ">
-							<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register"/>
-						</div>
-						<div class="login-register">
-				            <a href="login.html">Login</a>
-				         </div>
-				         <br>
-				         <p>{{resp}}</p>
+							<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Login"/>
 					</form>
+				<p>{{resp}}</p>
 				</div>
 			</div>
-
-	<br><br>
-	<br><br>
-
-<footer class="container-fluid text-center">
-
-</footer>
 
 </body>
 
