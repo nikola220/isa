@@ -77,7 +77,7 @@ public class UserController {
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> getLoggedUser() {
 		User user = (User) httpSession.getAttribute("loggedUser");
-		return new ResponseEntity<User>(user, HttpStatus.FOUND);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 	
 	@RequestMapping(

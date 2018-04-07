@@ -11,6 +11,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 @Entity
 public class User implements Serializable {
 
@@ -22,19 +26,30 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
+	@JsonIgnore
 	private Long id;
 	
 	private String name;
+	
 	private String lastName;
+	
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
+	
 	@Transient
+	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password2;
+	
 	private String email;
+	
 	private String city;
+	
 	private int phone;
+	
 	private boolean activated = false;
 	
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
 	private VerificationToken verificationToken;
 	
 	@Enumerated(EnumType.STRING)
