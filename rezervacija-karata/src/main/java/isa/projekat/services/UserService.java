@@ -18,5 +18,4 @@ public interface UserService {
 
 	Collection<User> findAll();
 	
-	User getLoggedUser();
 }

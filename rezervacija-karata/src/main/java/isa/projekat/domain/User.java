@@ -1,6 +1,7 @@
 package isa.projekat.domain;
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -8,8 +9,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 @Entity
-public class User implements Serializable{
+public class User implements Serializable {
 
 	/**
 	 * 
@@ -24,14 +27,18 @@ public class User implements Serializable{
 	private String name;
 	private String lastName;
 	private String password;
+	@Transient
 	private String password2;
 	private String email;
 	private String city;
 	private int phone;
 	private boolean activated = false;
 	
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+	private VerificationToken verificationToken;
+	
 	@Enumerated(EnumType.STRING)
-	private UserType type;
+	private Role role;
 	
 	public User() {
 	}
@@ -72,11 +79,11 @@ public class User implements Serializable{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public UserType getType() {
-		return type;
+	public Role getRole() {
+		return role;
 	}
-	public void setType(UserType type) {
-		this.type = type;
+	public void setRole(Role type) {
+		this.role = type;
 	}
 	public boolean isActivated() {
 		return activated;
@@ -90,4 +97,19 @@ public class User implements Serializable{
 	public void setPassword2(String password2) {
 		this.password2 = password2;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public VerificationToken getVerificationToken() {
+		return verificationToken;
+	}
+
+	public void setVerificationToken(VerificationToken verificationToken) {
+		this.verificationToken = verificationToken;
+	}
+	
 }

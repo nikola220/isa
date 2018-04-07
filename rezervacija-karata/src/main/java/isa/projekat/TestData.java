@@ -1,7 +1,7 @@
 package isa.projekat;
 
 import isa.projekat.domain.User;
-import isa.projekat.domain.UserType;
+import isa.projekat.domain.Role;
 import isa.projekat.services.UserService;
 
 import javax.annotation.PostConstruct;

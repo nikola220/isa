@@ -1,5 +1,5 @@
 package isa.projekat.domain;
 
-public enum UserType {
+public enum Role {
 	Registered, TheatreAdmin, FanZoneAdmin, SystemAdmin
 }

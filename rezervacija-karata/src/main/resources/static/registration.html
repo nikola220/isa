@@ -1,146 +1,109 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Registration</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <link rel="stylesheet" type="text/css" href="stylesheets/reg.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/page.css">	
+<div class="main-login main-center">
+	<form ng-submit="regFunc()" class="form-horizontal" name="regForm">
 
-  <!-- Website Font style -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-	
-  <script src="scripts/reg.js"></script>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">Deals</a></li>
-        <li><a href="#">Stores</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="container">
-
-				<div ng-app="regApp" ng-controller="regCtrl" class="main-login main-center">
-					<form ng-submit="regFunc()" class="form-horizontal" name="regForm">
-						
-						<div class="form-group">
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input ng-model="user.name" type="text" class="form-control" name="name" placeholder="Enter your Name" required>
-								</div>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label for="lastName" class="cols-sm-2 control-label">Your Last Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input ng-model="user.lastName" type="text" class="form-control" name="lastName" placeholder="Enter your Last Name" required>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input ng-model="user.email" type="email" class="form-control" name="email" placeholder="Enter your Email" required>
-								</div>
-							<span style="color:red" ng-show="regForm.email.$invalid && regForm.email.$touched">Please enter valid email</span>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input ng-model="user.password" type="password" class="form-control" name="password" placeholder="Enter your Password" required>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input ng-model="user.password2" type="password" class="form-control" name="password2" placeholder="Confirm your Password" required>
-								</div>
-									<span style="color:red" ng-show="invalidPassword() && regForm.password2.$touched">Passwords don't match</span>
-							</div>
-						</div>
-						
-					<div class="form-group">
-							<label for="city" class="cols-sm-2 control-label">City</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-map-marker fa" aria-hidden="true"></i></span>
-									<input ng-model="user.city" type="text" class="form-control" name="city" placeholder="Enter your City" required>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="phone" class="cols-sm-2 control-label">Phone Number</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-phone fa" aria-hidden="true"></i></span>
-									<input ng-model="user.phone" type="number" class="form-control" name="phone" placeholder="Enter your Phone Number" required>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group ">
-							<input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Register"/>
-						</div>
-						<div class="login-register">
-				            <a href="login.html">Login</a>
-				         </div>
-				         <br>
-				         <p>{{resp}}</p>
-					</form>
+		<div class="form-group">
+			<label for="name" class="cols-sm-2 control-label">Your Name</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user fa"
+						aria-hidden="true"></i></span> <input ng-model="user.name" type="text"
+						class="form-control" name="name" placeholder="Enter your Name"
+						required>
 				</div>
 			</div>
+		</div>
 
-	<br><br>
-	<br><br>
+		<div class="form-group">
+			<label for="lastName" class="cols-sm-2 control-label">Your
+				Last Name</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-user fa"
+						aria-hidden="true"></i></span> <input ng-model="user.lastName"
+						type="text" class="form-control" name="lastName"
+						placeholder="Enter your Last Name" required>
+				</div>
+			</div>
+		</div>
 
-<footer class="container-fluid text-center">
+		<div class="form-group">
+			<label for="email" class="cols-sm-2 control-label">Your Email</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-envelope fa"
+						aria-hidden="true"></i></span> <input ng-model="user.email" type="email"
+						class="form-control" name="email" placeholder="Enter your Email"
+						required>
+				</div>
+				<span style="color: red"
+					ng-show="regForm.email.$invalid && regForm.email.$touched">Please
+					enter valid email</span>
+			</div>
+		</div>
 
-</footer>
+		<div class="form-group">
+			<label for="password" class="cols-sm-2 control-label">Password</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-lock fa-lg"
+						aria-hidden="true"></i></span> <input ng-model="user.password"
+						type="password" class="form-control" name="password"
+						placeholder="Enter your Password" required>
+				</div>
+			</div>
+		</div>
 
-</body>
+		<div class="form-group">
+			<label for="confirm" class="cols-sm-2 control-label">Confirm
+				Password</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-lock fa-lg"
+						aria-hidden="true"></i></span> <input ng-model="user.password2"
+						type="password" class="form-control" name="password2"
+						placeholder="Confirm your Password" required>
+				</div>
+				<span style="color: red"
+					ng-show="invalidPassword() && regForm.password2.$touched">Passwords
+					don't match</span>
+			</div>
+		</div>
 
-</html>
+		<div class="form-group">
+			<label for="city" class="cols-sm-2 control-label">City</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i
+						class="fa fa-map-marker fa" aria-hidden="true"></i></span> <input
+						ng-model="user.city" type="text" class="form-control" name="city"
+						placeholder="Enter your City" required>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="phone" class="cols-sm-2 control-label">Phone
+				Number</label>
+			<div class="cols-sm-10">
+				<div class="input-group">
+					<span class="input-group-addon"><i class="fa fa-phone fa"
+						aria-hidden="true"></i></span> <input ng-model="user.phone" type="number"
+						class="form-control" name="phone"
+						placeholder="Enter your Phone Number" required>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group ">
+			<input type="submit"
+				class="btn btn-primary btn-lg btn-block login-button"
+				value="Register" />
+		</div>
+		<div class="login-register">
+			<a href="#!login">Login</a>
+		</div>
+		<br>
+		<p>{{resp}}</p>
+	</form>
+</div>

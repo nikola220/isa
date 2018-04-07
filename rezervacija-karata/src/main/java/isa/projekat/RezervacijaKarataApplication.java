@@ -6,13 +6,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class RezervacijaKarataApplication extends SpringBootServletInitializer {
+public class RezervacijaKarataApplication{
 
-	@Override
-	protected SpringApplicationBuilder configure(
-			SpringApplicationBuilder builder) {
-		return builder.sources(RezervacijaKarataApplication.class);
-	}
 	
 	public static void main(String[] args) {
 		SpringApplication.run(RezervacijaKarataApplication.class, args);
