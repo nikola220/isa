@@ -52,7 +52,10 @@ public class UserController {
 		}
 		
 		userService.addUser(user);
-		String verificationUrl = "http://localhost:8080/#!/activation";
+		String verificationUrl =  request.getRequestURL().toString();
+		//"http://localhost:8080/#!/activation";
+		String split[] = verificationUrl.split("/");
+		verificationUrl = split[0] + "//" + split[2] + "/#!/activation";
 		logger.info(verificationUrl);
 		tokenVerificationService.createAndSendVerification(user, verificationUrl);
 		return new ResponseEntity<String>("User added", HttpStatus.CREATED);

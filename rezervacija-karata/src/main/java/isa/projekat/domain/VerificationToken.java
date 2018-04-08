@@ -6,9 +6,9 @@ import java.util.UUID;
 
 @Entity
 public class VerificationToken {
+	
     public static final String STATUS_PENDING = "PENDING";
     public static final String STATUS_VERIFIED = "VERIFIED";
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
