@@ -72,6 +72,15 @@ public class UserController {
 	}
 	
 	@RequestMapping(
+			value = "logout",
+			method = RequestMethod.GET,
+			produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> verifyUser() {
+		httpSession.invalidate();
+		return new ResponseEntity<String>("User logged out", HttpStatus.OK);
+	}
+	
+	@RequestMapping(
 			value = "details",
 			method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
@@ -86,6 +95,18 @@ public class UserController {
 			produces = MediaType.TEXT_PLAIN_VALUE)
 	public ResponseEntity<String> verifyUser(@PathVariable("id") String id) {
 		return tokenVerificationService.verifyEmail(id);
+	}
+	
+	@RequestMapping(
+			value = "update",
+			method = RequestMethod.POST,
+			consumes = MediaType.APPLICATION_JSON_VALUE,
+			produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<User> updateUser(@RequestBody User user) throws Exception {
+		Long userId = ((User) httpSession.getAttribute("loggedUser")).getId();
+		User updatedUser = userService.updateUser(userId, user);
+		httpSession.setAttribute("loggedUser", updatedUser);
+		return new ResponseEntity<User>(updatedUser, HttpStatus.OK);
 	}
 	
 }

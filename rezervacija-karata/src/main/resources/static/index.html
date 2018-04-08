@@ -22,6 +22,7 @@
 
 <link rel="stylesheet" type="text/css" href="stylesheets/reg.css">
 <link rel="stylesheet" type="text/css" href="stylesheets/page.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/user.css">
 
 <!-- Website Font style -->
 <link rel="stylesheet"
@@ -46,8 +47,8 @@
 						<li><a href="#!login">Login</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#!user"><span class="glyphicon glyphicon-user"></span>Your
-								Account</a></li>
+						<li><a href="#!user"><span class="glyphicon glyphicon-user"></span>{{username}}</a></li>
+						<li><a href="user/logout"><span></span>Log Out</a></li>
 					</ul>
 				</div>
 			</div>
@@ -59,6 +60,8 @@
 		<div ng-view></div>
 
 	</div>
+	
+<div class="footer"></div>
 </body>
 
 

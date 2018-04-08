@@ -15,6 +15,8 @@ public interface UserService {
 	User findByEmailAndPassword(String email, String password);
 	
 	User addUser(User user);
+	
+	User updateUser(Long id, User updating);
 
 	Collection<User> findAll();
 	

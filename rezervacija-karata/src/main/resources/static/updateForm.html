@@ -1,9 +1,8 @@
 <div class="main-login main-center">
-	<form ng-submit="regFunc()" class="form-horizontal" name="regForm">
-		<h2 align="center">Sign in</h2>
+	<form ng-submit="updFunc()" class="form-horizontal" name="regForm">
+		<h2 align="center">Update details</h2>
 		<div class="clearfix"></div>
 		<div class="bot-border"></div>
-
 		<div class="form-group">
 			<label for="name" class="cols-sm-2 control-label">Your Name</label>
 			<div class="cols-sm-10">
@@ -45,34 +44,6 @@
 		</div>
 
 		<div class="form-group">
-			<label for="password" class="cols-sm-2 control-label">Password</label>
-			<div class="cols-sm-10">
-				<div class="input-group">
-					<span class="input-group-addon"><i class="fa fa-lock fa-lg"
-						aria-hidden="true"></i></span> <input ng-model="user.password"
-						type="password" class="form-control" name="password"
-						placeholder="Enter your Password" required>
-				</div>
-			</div>
-		</div>
-
-		<div class="form-group">
-			<label for="confirm" class="cols-sm-2 control-label">Confirm
-				Password</label>
-			<div class="cols-sm-10">
-				<div class="input-group">
-					<span class="input-group-addon"><i class="fa fa-lock fa-lg"
-						aria-hidden="true"></i></span> <input ng-model="user.password2"
-						type="password" class="form-control" name="password2"
-						placeholder="Confirm your Password" required>
-				</div>
-				<span style="color: red"
-					ng-show="invalidPassword() && regForm.password2.$touched">Passwords
-					don't match</span>
-			</div>
-		</div>
-
-		<div class="form-group">
 			<label for="city" class="cols-sm-2 control-label">City</label>
 			<div class="cols-sm-10">
 				<div class="input-group">
@@ -100,13 +71,8 @@
 		<div class="form-group ">
 			<input type="submit"
 				class="btn btn-primary btn-lg btn-block login-button"
-				value="Sign in" />
-		</div>
-		<div class="login-register">
-			<a href="#!login">Login</a>
+				value="Save" />
 		</div>
 		<br>
-		<p>{{resp}}</p>
 	</form>
 </div>
-	<br><br><br><br>
