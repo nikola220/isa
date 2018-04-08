@@ -64,6 +64,7 @@ public class TokenVerificationServiceImpl implements TokenVerificationService {
         verificationToken.getUser().setActivated(true);
         tokenVerificationRepository.save(verificationToken);
 
-        return ResponseEntity.ok("You have successfully verified your email address.");
+        return ResponseEntity.ok(verificationToken.getUser().getName() + ", "
+        		+ "you have successfully verified your email address.");
     }
 }

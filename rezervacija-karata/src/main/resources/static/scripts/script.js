@@ -10,10 +10,10 @@ app.config(function($routeProvider) {
 		templateUrl : 'user.html',
 		controller : 'uCtrl'
 	}).when('/activation/:param', {
-		templateUrl : 'activationPage.html',
+		templateUrl : 'activation-page.html',
 		controller : 'activationCtrl'
-	}).when('/updateUser', {
-		templateUrl : 'updateForm.html',
+	}).when('/update-user', {
+		templateUrl : 'update-form.html',
 		controller : 'uCtrl'
 	});
 });

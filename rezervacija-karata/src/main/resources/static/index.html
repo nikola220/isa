@@ -30,6 +30,7 @@
 
 </head>
 <body>
+<div ng-controller="uCtrl">
 	<header>
 		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
@@ -43,17 +44,24 @@
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
 						<li class="active"><a href="#">Home</a></li>
+					</ul>
+				<div ng-if="user == ''">
+					<ul class="nav navbar-nav navbar-right">					
 						<li><a href="#!registration">Sign up</a></li>
 						<li><a href="#!login">Login</a></li>
 					</ul>
+				</div>
+				<div ng-if="user != ''">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#!user"><span class="glyphicon glyphicon-user"></span>{{username}}</a></li>
+						<li><a href="#!user"><span class="glyphicon glyphicon-user"></span> {{user.name}}</a></li>
 						<li><a href="user/logout"><span></span>Log Out</a></li>
 					</ul>
+				</div>
 				</div>
 			</div>
 		</nav>
 	</header>
+	</div>
 
 	<div class="container">
 

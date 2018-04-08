@@ -1,10 +1,13 @@
 package isa.projekat.controller;
 
+import java.io.IOException;
+
 import isa.projekat.domain.User;
 import isa.projekat.services.TokenVerificationService;
 import isa.projekat.services.UserService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -75,9 +78,10 @@ public class UserController {
 			value = "logout",
 			method = RequestMethod.GET,
 			produces = MediaType.TEXT_PLAIN_VALUE)
-	public ResponseEntity<String> verifyUser() {
+	public ResponseEntity<String> verifyUser(HttpServletResponse response) throws IOException {
 		httpSession.invalidate();
-		return new ResponseEntity<String>("User logged out", HttpStatus.OK);
+		response.sendRedirect("/");
+		return new ResponseEntity<String>("User logged out", HttpStatus.CONTINUE);
 	}
 	
 	@RequestMapping(
